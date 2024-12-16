@@ -22,7 +22,7 @@ namespace DAL
          * */
 
         private static string _cadenaConexion = @"Data Source = THINKPAD-PC\SQLEXPRESS;
-                                          Initial Catalog = Transportes;
+                                          Initial Catalog = Escuela;
                                           Integrated Security = true;";
 
         // ENCAPSULAMIENTO

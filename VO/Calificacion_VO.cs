@@ -17,7 +17,7 @@ namespace VO
 
         // PROPIEDADES
         public int ID_Calificacion { get => _ID_Calificacion; set => _ID_Calificacion = value; }
-        public double Calificacion_ { get => _Calificacion; set => _Calificacion = value; }
+        public double Calificacion { get => _Calificacion; set => _Calificacion = value; }
         public int ID_Estudiante { get => _ID_Estudiante; set => _ID_Estudiante = value; }
         public int ID_Asignatura { get => _ID_Asignatura; set => _ID_Asignatura = value; }
 

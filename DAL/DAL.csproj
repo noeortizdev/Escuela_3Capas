@@ -42,8 +42,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuracion.cs" />
+    <Compile Include="DAL_Asignatura.cs" />
+    <Compile Include="DAL_Calificacion.cs" />
+    <Compile Include="DAL_Escuela.cs" />
+    <Compile Include="DAL_Estudiante.cs" />
+    <Compile Include="DAL_Grado.cs" />
+    <Compile Include="DAL_Profesor.cs" />
+    <Compile Include="DAL_Tutor.cs" />
     <Compile Include="Metodos_Datos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VO\VO.csproj">
+      <Project>{6bbbb91d-936d-4bec-b3f7-6061b28ebb4a}</Project>
+      <Name>VO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

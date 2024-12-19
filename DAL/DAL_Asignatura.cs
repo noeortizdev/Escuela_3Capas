@@ -99,11 +99,11 @@ namespace DAL
 
                 if (respuesta != 0)
                 {
-                    salida = "Asignatura eliminada con éxito";
+                    salida = "Asignatura eliminada con éxito.";
                 }
                 else
                 {
-                    salida = "Ha ocurrido un error";
+                    salida = "Ha ocurrido un error.";
                 }
             }
             catch (Exception e)

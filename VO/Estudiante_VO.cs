@@ -55,7 +55,7 @@ namespace VO
             _Sexo = dr["Sexo"].ToString();
             _Telefono = dr["Telefono"].ToString();
             _Direccion = dr["Direccion"].ToString();
-            _FechaNacimiento = dr["FechaNacimiento"].ToString();
+            _FechaNacimiento = DateTime.Parse(dr["FechaNacimiento"].ToString()).ToShortDateString();
             _ID_Grado = int.Parse(dr["ID_Grado"].ToString());
         }
     } // Fin de la CLASE "Estudiante_VO".

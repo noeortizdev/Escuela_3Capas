@@ -23,7 +23,7 @@ namespace BLL
         }
 
         // Update
-        public static string Actualizar_Escuela(Estudiante_VO estudiante)
+        public static string Actualizar_Estudiante(Estudiante_VO estudiante)
         {
             return DAL_Estudiante.Actualizar_Estudiante(estudiante);
         }

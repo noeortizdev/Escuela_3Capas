@@ -33,7 +33,7 @@ namespace Escuela_3Capas.Catalogos.Profesor
                     // Valido que realmente obtenga el objeto y sus valores, de lo contrario, me regreso al formulario.
                     if (_profesorOriginal.ID_Profesor != 0)
                     {
-                        // Si encontré el Camión y coloco sus valores.
+                        // Si encontré el Profesor y coloco sus valores.
                         Titulo.Text = "Actualizar Profesor";
                         SubTitulo.Text = $"Modificar los datos del Profesor No. {_id}";
                         txtNombre.Text = _profesorOriginal.Nombre;

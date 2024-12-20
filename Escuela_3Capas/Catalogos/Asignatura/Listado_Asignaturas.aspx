@@ -9,7 +9,6 @@
     </div>
 
     <div class="row">
-
         <asp:GridView ID="GVAsignaturas" runat="server"
             CssClass="table table-bordered table-striped table-condensed"
             AutoGenerateColumns="false"
@@ -31,6 +30,5 @@
                 <asp:CommandField ButtonType="Button" HeaderText="Eliminar" ShowDeleteButton="true" ShowHeader="true" ControlStyle-CssClass="btn btn-danger btn-xs" ItemStyle-Width="50px" />
             </Columns>
         </asp:GridView>
-
     </div>
 </asp:Content>

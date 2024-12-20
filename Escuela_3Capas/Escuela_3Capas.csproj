@@ -102,6 +102,8 @@
     <Content Include="About.aspx" />
     <Content Include="Catalogos\Asignatura\Formulario_Asignatura.aspx" />
     <Content Include="Catalogos\Asignatura\Listado_Asignaturas.aspx" />
+    <Content Include="Catalogos\Grado\Formulario_Grado.aspx" />
+    <Content Include="Catalogos\Grado\Listado_Grado.aspx" />
     <Content Include="Catalogos\Profesor\Formulario_Profesor.aspx" />
     <Content Include="Catalogos\Profesor\Listado_Profesores.aspx" />
     <Content Include="Contact.aspx" />
@@ -209,6 +211,20 @@
     </Compile>
     <Compile Include="Catalogos\Asignatura\Listado_Asignaturas.aspx.designer.cs">
       <DependentUpon>Listado_Asignaturas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Grado\Formulario_Grado.aspx.cs">
+      <DependentUpon>Formulario_Grado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Grado\Formulario_Grado.aspx.designer.cs">
+      <DependentUpon>Formulario_Grado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Grado\Listado_Grado.aspx.cs">
+      <DependentUpon>Listado_Grado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Grado\Listado_Grado.aspx.designer.cs">
+      <DependentUpon>Listado_Grado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Catalogos\Profesor\Formulario_Profesor.aspx.cs">
       <DependentUpon>Formulario_Profesor.aspx</DependentUpon>

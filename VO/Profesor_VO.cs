@@ -49,7 +49,7 @@ namespace VO
             _CURP = dr["CURP"].ToString();
             _Sexo = dr["Sexo"].ToString();
             _Telefono = dr["Telefono"].ToString();
-            _FechaNacimiento = dr["FechaNacimiento"].ToString();
+            _FechaNacimiento = DateTime.Parse(dr["FechaNacimiento"].ToString()).ToShortDateString();
         }
     } // Fin de la CLASE "Profesor".
 } // Fin del "namespace VO".

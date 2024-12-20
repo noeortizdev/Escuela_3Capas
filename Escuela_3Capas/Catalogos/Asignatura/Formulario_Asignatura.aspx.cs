@@ -54,10 +54,12 @@ namespace Escuela_3Capas.Catalogos.Asignatura
             {
                 if (txtNombre.Text != string.Empty)
                 {
-                    string valores = "Q WERTYUIOPASDFGHJKLÑZXCVBNMqwertyuiopasdfghjklñzxcvbnméúíóáÉÚÍÓÁ1234567890";
+                    string valores = "QWERTYUIOPASDFGHJKLÑZXCVBNMqwertyuiopasdfghjklñzxcvbnméúíóáÉÚÍÓÁ1234567890";
                     string valoresConGuionBajo = "_";
                     string valoresConGuion = "-";
-                    if (txtNombre.Text.Contains(valores) || txtNombre.Text.Contains(valoresConGuionBajo) || txtNombre.Text.Contains(valoresConGuion))
+                    string valoresConUnEspacio = " ";
+                    if (txtNombre.Text.Contains(valores) || txtNombre.Text.Contains(valoresConGuionBajo) || txtNombre.Text.Contains(valoresConGuion) ||
+                        txtNombre.Text.Contains((valoresConUnEspacio)))
                     {
                         // Creamos el objeto que enviaremos para actualizar o insertar a la BD.
                         // Existen 2 formas de instanciar y llenar un objeto.

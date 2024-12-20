@@ -29,7 +29,7 @@ namespace BLL
         }
 
         // Delete
-        public static string Eliminar_profesor(int id)
+        public static string Eliminar_Profesor(int id)
         {
             return DAL_Profesor.Eliminar_Profesor(id);
         }

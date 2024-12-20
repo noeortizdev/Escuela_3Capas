@@ -102,6 +102,8 @@
     <Content Include="About.aspx" />
     <Content Include="Catalogos\Asignatura\Formulario_Asignatura.aspx" />
     <Content Include="Catalogos\Asignatura\Listado_Asignaturas.aspx" />
+    <Content Include="Catalogos\Profesor\Formulario_Profesor.aspx" />
+    <Content Include="Catalogos\Profesor\Listado_Profesores.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -207,6 +209,20 @@
     </Compile>
     <Compile Include="Catalogos\Asignatura\Listado_Asignaturas.aspx.designer.cs">
       <DependentUpon>Listado_Asignaturas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Profesor\Formulario_Profesor.aspx.cs">
+      <DependentUpon>Formulario_Profesor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Profesor\Formulario_Profesor.aspx.designer.cs">
+      <DependentUpon>Formulario_Profesor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Profesor\Listado_Profesores.aspx.cs">
+      <DependentUpon>Listado_Profesores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Profesor\Listado_Profesores.aspx.designer.cs">
+      <DependentUpon>Listado_Profesores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>

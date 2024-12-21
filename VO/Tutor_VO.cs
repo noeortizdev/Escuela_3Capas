@@ -59,7 +59,7 @@ namespace VO
             _Telefono = dr["Telefono"].ToString();
             _Parentesco = dr["Parentesco"].ToString();
             _Direccion = dr["Direccion"].ToString();
-            _FechaNacimiento = dr["FechaNacimiento"].ToString();
+            _FechaNacimiento = DateTime.Parse(dr["FechaNacimiento"].ToString()).ToShortDateString();
             _ID_Estudiante = int.Parse(dr["ID_Estudiante"].ToString());
         }
     } // Fin de la CLASE "Tutor_VO".

@@ -9,12 +9,12 @@
         <div class="row col-md-5">
             <div class="form-group">
                 <asp:Label ID="lblGrado" runat="server" Text="Grado"></asp:Label>
-                <asp:TextBox ID="txtGrado" runat="server" Placeholder="(Por ejemplo, Primero o Segundo)" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtGrado" runat="server" Placeholder="(Por ejemplo, Primero o Segundo)" CssClass="form-control" required></asp:TextBox>
                 <asp:Label ID="lblGrupo" runat="server" Text="Grupo"></asp:Label>
-                <asp:TextBox ID="txtGrupo" runat="server" Placeholder="(Por ejemplo, A o B)" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtGrupo" runat="server" Placeholder="(Por ejemplo, A o B)" CssClass="form-control" required></asp:TextBox>
                 <%-- DLL - Drop Down List --%>
                 <asp:Label ID="lblProfesor" runat="server" Text="Profesor"></asp:Label>
-                <asp:DropDownList ID="ddlProfesor" runat="server" CssClass="form-control"></asp:DropDownList>
+                <asp:DropDownList ID="ddlProfesor" runat="server" CssClass="form-control" required></asp:DropDownList>
             </div>
             <br />
             <br />

@@ -13,7 +13,7 @@
                     <%-- Etiquetado --%>
                     <asp:Label ID="lblNombre" runat="server" Text="Nombre"></asp:Label>
                     <%-- Campo --%>
-                    <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" required></asp:TextBox>
                     <br />
                     <%-- Campos especiales --%>
                     <asp:Button ID="btnGuardar" CssClass="btn btn-primary" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />

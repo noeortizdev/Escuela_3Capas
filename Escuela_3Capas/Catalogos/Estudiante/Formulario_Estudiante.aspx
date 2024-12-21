@@ -13,32 +13,32 @@
                     <%-- Etiquetado --%>
                     <asp:Label ID="lblNombre" runat="server" Text="Nombre"></asp:Label>
                     <%-- Campo --%>
-                    <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" required></asp:TextBox>
 
                     <asp:Label ID="lblAPaterno" runat="server" Text="Apellido Paterno"></asp:Label>
-                    <asp:TextBox ID="txtAPaterno" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtAPaterno" runat="server" CssClass="form-control" required></asp:TextBox>
 
                     <asp:Label ID="lblAMaterno" runat="server" Text="Apellido Materno"></asp:Label>
-                    <asp:TextBox ID="txtAMaterno" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtAMaterno" runat="server" CssClass="form-control" required></asp:TextBox>
 
                     <asp:Label ID="lblCURP" runat="server" Text="CURP"></asp:Label>
-                    <asp:TextBox ID="txtCURP" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtCURP" runat="server" CssClass="form-control" required></asp:TextBox>
 
                     <asp:Label ID="lblSexo" runat="server" Text="Sexo"></asp:Label>
-                    <asp:TextBox ID="txtSexo" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtSexo" runat="server" CssClass="form-control" required></asp:TextBox>
 
                     <asp:Label ID="lblTelefono" runat="server" Text="Telefono"></asp:Label>
-                    <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" required></asp:TextBox>
 
                     <asp:Label ID="lblDireccion" runat="server" Text="Direccion"></asp:Label>
-                    <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control" required></asp:TextBox>
 
                     <asp:Label ID="lblFechaNacimiento" runat="server" Text="Fecha de Nacimiento"></asp:Label>
-                    <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                    <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="form-control" TextMode="Date" required></asp:TextBox>
 
                     <%-- DLL - Drop Down List --%>
                     <asp:Label ID="lblGrado" runat="server" Text="Grado"></asp:Label>
-                    <asp:DropDownList ID="ddlGrado" runat="server" CssClass="form-control"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlGrado" runat="server" CssClass="form-control" required></asp:DropDownList>
                     <br />
                 </div>
                 <asp:Button ID="btnGuardar" CssClass="btn btn-primary" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />

@@ -25,22 +25,22 @@ namespace Escuela_3Capas.Catalogos.Estudiante
                     // Recupero el ID de la URL.
                     int id_estudiante = int.Parse(Request.QueryString["Id"].ToString());
                     // Recupero el Objeto Original.
-                    Estudiante_VO _estudiante = BLL_Estudiante.Get_Estudiantes("@ID_Estudiante", id_estudiante)[0];
+                    Estudiante_VO estudiante = BLL_Estudiante.Get_Estudiantes("@ID_Estudiante", id_estudiante)[0];
                     // Valido que realmente ha recuperado un objeto.
-                    if (_estudiante.ID_Estudiante != 0)
+                    if (estudiante.ID_Estudiante != 0)
                     {
                         // Relleno el formulario.
                         Titulo.Text = "Actualizar Estudiante";
                         SubTitulo.Text = $"Modificar los datos del Estudiante No. {id_estudiante}";
-                        txtNombre.Text = _estudiante.Nombre;
-                        txtAPaterno.Text = _estudiante.APaterno;
-                        txtAMaterno.Text = _estudiante.AMaterno;
-                        txtCURP.Text = _estudiante.CURP;
-                        txtSexo.Text = _estudiante.Sexo;
-                        txtTelefono.Text = _estudiante.Telefono;
-                        txtDireccion.Text = _estudiante.Direccion;
-                        txtFechaNacimiento.Text = DateTime.Parse(_estudiante.FechaNacimiento).ToString("yyyy-MM-dd");
-                        ddlGrado.SelectedValue = _estudiante.ID_Grado.ToString();
+                        txtNombre.Text = estudiante.Nombre;
+                        txtAPaterno.Text = estudiante.APaterno;
+                        txtAMaterno.Text = estudiante.AMaterno;
+                        txtCURP.Text = estudiante.CURP;
+                        txtSexo.Text = estudiante.Sexo;
+                        txtTelefono.Text = estudiante.Telefono;
+                        txtDireccion.Text = estudiante.Direccion;
+                        txtFechaNacimiento.Text = DateTime.Parse(estudiante.FechaNacimiento).ToString("yyyy-MM-dd");
+                        ddlGrado.SelectedValue = estudiante.ID_Grado.ToString();
                     }
                     else
                     {
@@ -50,21 +50,9 @@ namespace Escuela_3Capas.Catalogos.Estudiante
                 }
                 else
                 {
-                    bool validarText = txtNombre.Text == string.Empty && txtAPaterno.Text == string.Empty &&
-                                       txtAMaterno.Text == string.Empty && txtCURP.Text == string.Empty &&
-                                       txtSexo.Text == string.Empty && txtTelefono.Text == string.Empty &&
-                                       txtDireccion.Text == string.Empty && txtFechaNacimiento.Text == string.Empty &&
-                                       ddlGrado.SelectedValue == string.Empty;
-                    if (!validarText)
-                    {
-                        // Voy a Insertar.
-                        Titulo.Text = "Agregar Estudiante";
-                        SubTitulo.Text = "Registrar un Nuevo Estudiante";
-                    }
-                    else
-                    {
-                        throw new Exception("Lo siento, tiene que completar los campos...");
-                    }
+                    // Voy a Insertar.
+                    Titulo.Text = "Agregar Estudiante";
+                    SubTitulo.Text = "Registrar un Nuevo Estudiante";
                 }
             }
         }
@@ -97,48 +85,60 @@ namespace Escuela_3Capas.Catalogos.Estudiante
             string titulo, msg, tipo, respuesta;
             try
             {
-                // Asigno mis valores del formulario al objeto.
-                estudiante.Nombre = txtNombre.Text;
-                estudiante.APaterno = txtAPaterno.Text;
-                estudiante.AMaterno = txtAMaterno.Text;
-                estudiante.CURP = txtCURP.Text;
-                estudiante.Sexo = txtSexo.Text;
-                estudiante.Telefono = txtTelefono.Text;
-                estudiante.Direccion = txtDireccion.Text;
-                // Formateamos la fecha en Inglés, para así enviarla a SQL.
-                estudiante.FechaNacimiento = txtFechaNacimiento.Text;
-                estudiante.ID_Grado = int.Parse(ddlGrado.SelectedValue);
+                /*bool validarText = txtNombre.Text == string.Empty && txtAPaterno.Text == string.Empty &&
+                                       txtAMaterno.Text == string.Empty && txtCURP.Text == string.Empty &&
+                                       txtSexo.Text == string.Empty && txtTelefono.Text == string.Empty &&
+                                       txtDireccion.Text == string.Empty && txtFechaNacimiento.Text == string.Empty &&
+                                       ddlGrado.SelectedValue == string.Empty;
+                if (validarText)
+                {*/
+                    // Asigno mis valores del formulario al objeto.
+                    estudiante.Nombre = txtNombre.Text;
+                    estudiante.APaterno = txtAPaterno.Text;
+                    estudiante.AMaterno = txtAMaterno.Text;
+                    estudiante.CURP = txtCURP.Text;
+                    estudiante.Sexo = txtSexo.Text;
+                    estudiante.Telefono = txtTelefono.Text;
+                    estudiante.Direccion = txtDireccion.Text;
+                    // Formateamos la fecha en Inglés, para así enviarla a SQL.
+                    estudiante.FechaNacimiento = txtFechaNacimiento.Text;
+                    estudiante.ID_Grado = int.Parse(ddlGrado.SelectedValue);
 
-                // Valido si voy a insertar o a actualizar.
-                if (Request.QueryString["Id"] != null)
-                {
-                    // Voy a actualizar.
-                    estudiante.ID_Estudiante = int.Parse(Request.QueryString["id"]);
-                    respuesta = BLL_Estudiante.Actualizar_Estudiante(estudiante);
-                }
+                    // Valido si voy a insertar o a actualizar.
+                    if (Request.QueryString["Id"] != null)
+                    {
+                        // Voy a actualizar.
+                        estudiante.ID_Estudiante = int.Parse(Request.QueryString["id"]);
+                        respuesta = BLL_Estudiante.Actualizar_Estudiante(estudiante);
+                    }
+                    else
+                    {
+                        // Voy a insertar
+                        respuesta = BLL_Estudiante.Insertar_Estudiante(estudiante);
+                    }
+
+                    // Preparo mi Sweet Alert.
+                    if (respuesta.ToUpper().Contains("ERROR"))
+                    {
+                        titulo = "ERROR";
+                        msg = respuesta;
+                        tipo = "error";
+                        // Sweet Alert.
+                        SweetAlert.Sweet_Alert(titulo, msg, tipo, this.Page, this.GetType());
+                    }
+                    else
+                    {
+                        titulo = "Ok!";
+                        msg = respuesta;
+                        tipo = "success";
+                        // Sweet Alert.
+                        SweetAlert.Sweet_Alert(titulo, msg, tipo, this.Page, this.GetType(), "/Catalogos/Estudiante/Listado_Estudiantes.aspx");
+                    }
+                /*}
                 else
                 {
-                    // Voy a insertar
-                    respuesta = BLL_Estudiante.Insertar_Estudiante(estudiante);
-                }
-
-                // Preparo mi Sweet Alert.
-                if (respuesta.ToUpper().Contains("ERROR"))
-                {
-                    titulo = "ERROR";
-                    msg = respuesta;
-                    tipo = "error";
-                    // Sweet Alert.
-                    SweetAlert.Sweet_Alert(titulo, msg, tipo, this.Page, this.GetType());
-                }
-                else
-                {
-                    titulo = "Ok!";
-                    msg = respuesta;
-                    tipo = "success";
-                    // Sweet Alert.
-                    SweetAlert.Sweet_Alert(titulo, msg, tipo, this.Page, this.GetType(), "/Catalogos/Estudiante/Listado_Estudiantes.aspx");
-                }
+                    throw new Exception("Tienes que completar los campos....");
+                }*/
             }
             catch (Exception ex)
             {

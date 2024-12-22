@@ -48,6 +48,7 @@
     <Compile Include="Grado_VO.cs" />
     <Compile Include="Profesor_VO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Total_Cal_VO.cs" />
     <Compile Include="Tutor_VO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -102,12 +102,15 @@
     <Content Include="About.aspx" />
     <Content Include="Catalogos\Asignatura\Formulario_Asignatura.aspx" />
     <Content Include="Catalogos\Asignatura\Listado_Asignaturas.aspx" />
+    <Content Include="Catalogos\Calificacion\Formulario_Calificacion.aspx" />
+    <Content Include="Catalogos\Calificacion\Listado_Calificaciones.aspx" />
     <Content Include="Catalogos\Estudiante\Formulario_Estudiante.aspx" />
     <Content Include="Catalogos\Estudiante\Listado_Estudiantes.aspx" />
     <Content Include="Catalogos\Grado\Formulario_Grado.aspx" />
     <Content Include="Catalogos\Grado\Listado_Grado.aspx" />
     <Content Include="Catalogos\Profesor\Formulario_Profesor.aspx" />
     <Content Include="Catalogos\Profesor\Listado_Profesores.aspx" />
+    <Content Include="Catalogos\Total\Total.aspx" />
     <Content Include="Catalogos\Tutor\Formulario_Tutor.aspx" />
     <Content Include="Catalogos\Tutor\Listado_Tutores.aspx" />
     <Content Include="Contact.aspx" />
@@ -159,6 +162,10 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="WS\WS_Asignatura.asmx" />
+    <Content Include="WS\WS_Calificaciones.asmx" />
+    <Content Include="WS\WS_Estudiantes.asmx" />
+    <Content Include="WS\WS_Profesor.asmx" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -216,6 +223,20 @@
     <Compile Include="Catalogos\Asignatura\Listado_Asignaturas.aspx.designer.cs">
       <DependentUpon>Listado_Asignaturas.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Catalogos\Calificacion\Formulario_Calificacion.aspx.cs">
+      <DependentUpon>Formulario_Calificacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Calificacion\Formulario_Calificacion.aspx.designer.cs">
+      <DependentUpon>Formulario_Calificacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Calificacion\Listado_Calificaciones.aspx.cs">
+      <DependentUpon>Listado_Calificaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Calificacion\Listado_Calificaciones.aspx.designer.cs">
+      <DependentUpon>Listado_Calificaciones.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Catalogos\Estudiante\Formulario_Estudiante.aspx.cs">
       <DependentUpon>Formulario_Estudiante.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -257,6 +278,13 @@
     </Compile>
     <Compile Include="Catalogos\Profesor\Listado_Profesores.aspx.designer.cs">
       <DependentUpon>Listado_Profesores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Total\Total.aspx.cs">
+      <DependentUpon>Total.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Total\Total.aspx.designer.cs">
+      <DependentUpon>Total.aspx</DependentUpon>
     </Compile>
     <Compile Include="Catalogos\Tutor\Formulario_Tutor.aspx.cs">
       <DependentUpon>Formulario_Tutor.aspx</DependentUpon>
@@ -311,6 +339,22 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WS\WS_Asignatura.asmx.cs">
+      <DependentUpon>WS_Asignatura.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS\WS_Calificaciones.asmx.cs">
+      <DependentUpon>WS_Calificaciones.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS\WS_Estudiantes.asmx.cs">
+      <DependentUpon>WS_Estudiantes.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS\WS_Profesor.asmx.cs">
+      <DependentUpon>WS_Profesor.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

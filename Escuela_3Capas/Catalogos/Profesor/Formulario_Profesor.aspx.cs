@@ -14,6 +14,7 @@ namespace Escuela_3Capas.Catalogos.Profesor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Cargar_DLL();
             // Válido si es Postback.
             if (!IsPostBack)
             {
@@ -40,7 +41,14 @@ namespace Escuela_3Capas.Catalogos.Profesor
                         txtAPaterno.Text = _profesorOriginal.APaterno;
                         txtAMaterno.Text = _profesorOriginal.AMaterno;
                         txtCURP.Text = _profesorOriginal.CURP;
-                        txtSexo.Text = _profesorOriginal.Sexo;
+                        if (_profesorOriginal.Sexo == "Masculino")
+                        {
+                            ddlGenero.SelectedValue = "1";
+                        }
+                        else
+                        {
+                            ddlGenero.SelectedValue = "2";
+                        }
                         txtTelefono.Text = _profesorOriginal.Telefono;
                         //txtFechaNacimiento.Text = _profesorOriginal.FechaNacimiento;
                         txtFechaNacimiento.Text = DateTime.Parse(_profesorOriginal.FechaNacimiento).ToString("yyyy-MM-dd");
@@ -67,7 +75,14 @@ namespace Escuela_3Capas.Catalogos.Profesor
                 profesor.APaterno = txtAPaterno.Text;
                 profesor.AMaterno = txtAMaterno.Text;
                 profesor.CURP = txtCURP.Text;
-                profesor.Sexo = txtSexo.Text;
+                if (ddlGenero.SelectedValue == "1")
+                {
+                    profesor.Sexo = "Masculino";
+                }
+                else
+                {
+                    profesor.Sexo = "Femenino";
+                }
                 profesor.Telefono = txtTelefono.Text;
                 // Formateamos la fecha en Inglés, para así enviarla a SQL.
                 profesor.FechaNacimiento = txtFechaNacimiento.Text;
@@ -118,6 +133,19 @@ namespace Escuela_3Capas.Catalogos.Profesor
         {
             // No encontré el objeto y me voy para atrás.
             Response.Redirect("/Catalogos/Profesor/Listado_Profesores.aspx");
+        }
+
+        private void Cargar_DLL()
+        {
+            // ddlProfesor
+            // Creo un OBJETO de TIPO 'ListItem' para agregarlo a la lista de elementos del DLL.
+            // ListItem(valor_a_mostrar, valor_a_guardar).
+            ListItem ddlGenero_I = new ListItem("Seleccione un Género", "0");
+            ddlGenero.Items.Add(ddlGenero_I);
+            ListItem PI1 = new ListItem("Masculino", "1");
+            ddlGenero.Items.Add(PI1);
+            ListItem PI2 = new ListItem("Femenino", "2");
+            ddlGenero.Items.Add(PI2);
         }
     }
 }

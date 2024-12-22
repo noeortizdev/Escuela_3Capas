@@ -35,7 +35,7 @@ namespace Escuela_3Capas.Catalogos.Asignatura
                     {
                         // Si encontré el Camión y coloco sus valores.
                         Titulo.Text = "Actualizar Asignatura";
-                        SubTitulo.Text = $"Modificar los datos de la Asignatura #{_id}";
+                        SubTitulo.Text = $"Modificar los datos de la Asignatura No. {_id}";
                         txtNombre.Text = _asignaturaOriginal.Nombre;
                     }
                     else

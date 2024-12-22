@@ -17,6 +17,8 @@ namespace Escuela_3Capas.Catalogos.Tutor
             if (!IsPostBack)
             {
                 Cargar_DLL();
+                Cargar_DLLGenero();
+                Cargar_DLLParentesco();
                 if (Request.QueryString["Id"] == null)
                 {
                     // Voy a insertar
@@ -40,9 +42,31 @@ namespace Escuela_3Capas.Catalogos.Tutor
                         txtAPaterno.Text = tutor.APaterno;
                         txtAMaterno.Text = tutor.AMaterno;
                         txtCURP.Text = tutor.CURP;
-                        txtSexo.Text = tutor.Sexo;
+                        if (tutor.Sexo == "Masculino")
+                        {
+                            ddlGenero.SelectedValue = "1";
+                        }
+                        else
+                        {
+                            ddlGenero.SelectedValue = "2";
+                        }
                         txtTelefono.Text = tutor.Telefono;
-                        txtParentesco.Text = tutor.Telefono;
+                        if (tutor.Parentesco == "Padre")
+                        {
+                            ddlParentesco.SelectedValue = "1";
+                        }
+                        else if (tutor.Parentesco == "Madre")
+                        {
+                            ddlParentesco.SelectedValue = "2";
+                        }
+                        else if (tutor.Parentesco == "Hermano(a)")
+                        {
+                            ddlParentesco.SelectedValue = "3";
+                        }
+                        else
+                        {
+                            ddlParentesco.SelectedValue = "4";
+                        }
                         txtDireccion.Text = tutor.Direccion;
                         txtFechaNacimiento.Text = DateTime.Parse(tutor.FechaNacimiento).ToString("yyyy-MM-dd");
                         ddlEstudiante.SelectedValue = tutor.ID_Estudiante.ToString();
@@ -75,6 +99,35 @@ namespace Escuela_3Capas.Catalogos.Tutor
                 }
             }
         }
+        private void Cargar_DLLGenero()
+        {
+            // ddlGenero
+            // Creo un OBJETO de TIPO 'ListItem' para agregarlo a la lista de elementos del DLL.
+            // ListItem(valor_a_mostrar, valor_a_guardar).
+            ListItem ddlGenero_I = new ListItem("Seleccione un Género", "0");
+            ddlGenero.Items.Add(ddlGenero_I);
+            ListItem GI1 = new ListItem("Masculino", "1");
+            ddlGenero.Items.Add(GI1);
+            ListItem GI2 = new ListItem("Femenino", "2");
+            ddlGenero.Items.Add(GI2);
+        }
+
+        private void Cargar_DLLParentesco()
+        {
+            // ddlParentesco
+            // Creo un OBJETO de TIPO 'ListItem' para agregarlo a la lista de elementos del DLL.
+            // ListItem(valor_a_mostrar, valor_a_guardar).
+            ListItem ddlParentesco_I = new ListItem("Seleccione un Parentesco", "0");
+            ddlParentesco.Items.Add(ddlParentesco_I);
+            ListItem PI1 = new ListItem("Padre", "1");
+            ddlParentesco.Items.Add(PI1);
+            ListItem PI2 = new ListItem("Madre", "2");
+            ddlParentesco.Items.Add(PI2);
+            ListItem PI3 = new ListItem("Hermano(a)", "3");
+            ddlParentesco.Items.Add(PI3);
+            ListItem PI4 = new ListItem("Tio(a)", "4");
+            ddlParentesco.Items.Add(PI4);
+        }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -91,9 +144,31 @@ namespace Escuela_3Capas.Catalogos.Tutor
                     tutorAux.APaterno = txtAPaterno.Text;
                     tutorAux.AMaterno = txtAMaterno.Text;
                     tutorAux.CURP = txtCURP.Text;
-                    tutorAux.Sexo = txtSexo.Text;
+                    if (ddlGenero.SelectedValue == "1")
+                    {
+                        tutorAux.Sexo = "Masculino";
+                    }
+                    else
+                    {
+                        tutorAux.Sexo = "Femenino";
+                    }
                     tutorAux.Telefono = txtTelefono.Text;
-                    tutorAux.Parentesco = txtParentesco.Text;
+                    if (ddlParentesco.SelectedValue == "1")
+                    {
+                        tutorAux.Parentesco = "Padre";
+                    }
+                    else if (ddlParentesco.SelectedValue == "2")
+                    {
+                        tutorAux.Parentesco = "Madre";
+                    }
+                    else if (ddlParentesco.SelectedValue == "3")
+                    {
+                        tutorAux.Parentesco = "Hermano(a)";
+                    }
+                    else
+                    {
+                        tutorAux.Parentesco = "Tio(a)";
+                    }
                     tutorAux.Direccion = txtDireccion.Text;
                     tutorAux.FechaNacimiento = txtFechaNacimiento.Text;
                     tutorAux.ID_Estudiante = int.Parse(ddlEstudiante.SelectedValue);

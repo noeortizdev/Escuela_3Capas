@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BLL_Calificacion.cs" />
     <Compile Include="BLL_Asignatura.cs" />
+    <Compile Include="BLL_Total.cs" />
     <Compile Include="BLL_Tutor.cs" />
     <Compile Include="BLL_Profesor.cs" />
     <Compile Include="BLL_Grado.cs" />

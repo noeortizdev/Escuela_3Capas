@@ -18,6 +18,7 @@ namespace Escuela_3Capas.Catalogos.Estudiante
             {
                 // Cargo mis DDL'S (Drop Down List).
                 Cargar_DLL();
+                Cargar_DLLGenero();
                 // Valido si se va a Insertar o a Actualizar.
                 if (Request.QueryString["Id"] != null)
                 {
@@ -36,7 +37,14 @@ namespace Escuela_3Capas.Catalogos.Estudiante
                         txtAPaterno.Text = estudiante.APaterno;
                         txtAMaterno.Text = estudiante.AMaterno;
                         txtCURP.Text = estudiante.CURP;
-                        txtSexo.Text = estudiante.Sexo;
+                        if (estudiante.Sexo == "Masculino")
+                        {
+                            ddlGenero.SelectedValue = "1";
+                        }
+                        else
+                        {
+                            ddlGenero.SelectedValue = "2";
+                        }
                         txtTelefono.Text = estudiante.Telefono;
                         txtDireccion.Text = estudiante.Direccion;
                         txtFechaNacimiento.Text = DateTime.Parse(estudiante.FechaNacimiento).ToString("yyyy-MM-dd");
@@ -77,6 +85,19 @@ namespace Escuela_3Capas.Catalogos.Estudiante
             }
         }
 
+        private void Cargar_DLLGenero()
+        {
+            // ddlGenero
+            // Creo un OBJETO de TIPO 'ListItem' para agregarlo a la lista de elementos del DLL.
+            // ListItem(valor_a_mostrar, valor_a_guardar).
+            ListItem ddlGenero_I = new ListItem("Seleccione un Género", "0");
+            ddlGenero.Items.Add(ddlGenero_I);
+            ListItem GI1 = new ListItem("Masculino", "1");
+            ddlGenero.Items.Add(GI1);
+            ListItem GI2 = new ListItem("Femenino", "2");
+            ddlGenero.Items.Add(GI2);
+        }
+
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             // Preparo mi objeto para enviar.
@@ -85,60 +106,55 @@ namespace Escuela_3Capas.Catalogos.Estudiante
             string titulo, msg, tipo, respuesta;
             try
             {
-                /*bool validarText = txtNombre.Text == string.Empty && txtAPaterno.Text == string.Empty &&
-                                       txtAMaterno.Text == string.Empty && txtCURP.Text == string.Empty &&
-                                       txtSexo.Text == string.Empty && txtTelefono.Text == string.Empty &&
-                                       txtDireccion.Text == string.Empty && txtFechaNacimiento.Text == string.Empty &&
-                                       ddlGrado.SelectedValue == string.Empty;
-                if (validarText)
-                {*/
-                    // Asigno mis valores del formulario al objeto.
-                    estudiante.Nombre = txtNombre.Text;
-                    estudiante.APaterno = txtAPaterno.Text;
-                    estudiante.AMaterno = txtAMaterno.Text;
-                    estudiante.CURP = txtCURP.Text;
-                    estudiante.Sexo = txtSexo.Text;
-                    estudiante.Telefono = txtTelefono.Text;
-                    estudiante.Direccion = txtDireccion.Text;
-                    // Formateamos la fecha en Inglés, para así enviarla a SQL.
-                    estudiante.FechaNacimiento = txtFechaNacimiento.Text;
-                    estudiante.ID_Grado = int.Parse(ddlGrado.SelectedValue);
-
-                    // Valido si voy a insertar o a actualizar.
-                    if (Request.QueryString["Id"] != null)
-                    {
-                        // Voy a actualizar.
-                        estudiante.ID_Estudiante = int.Parse(Request.QueryString["id"]);
-                        respuesta = BLL_Estudiante.Actualizar_Estudiante(estudiante);
-                    }
-                    else
-                    {
-                        // Voy a insertar
-                        respuesta = BLL_Estudiante.Insertar_Estudiante(estudiante);
-                    }
-
-                    // Preparo mi Sweet Alert.
-                    if (respuesta.ToUpper().Contains("ERROR"))
-                    {
-                        titulo = "ERROR";
-                        msg = respuesta;
-                        tipo = "error";
-                        // Sweet Alert.
-                        SweetAlert.Sweet_Alert(titulo, msg, tipo, this.Page, this.GetType());
-                    }
-                    else
-                    {
-                        titulo = "Ok!";
-                        msg = respuesta;
-                        tipo = "success";
-                        // Sweet Alert.
-                        SweetAlert.Sweet_Alert(titulo, msg, tipo, this.Page, this.GetType(), "/Catalogos/Estudiante/Listado_Estudiantes.aspx");
-                    }
-                /*}
+                // Asigno mis valores del formulario al objeto.
+                estudiante.Nombre = txtNombre.Text;
+                estudiante.APaterno = txtAPaterno.Text;
+                estudiante.AMaterno = txtAMaterno.Text;
+                estudiante.CURP = txtCURP.Text;
+                if (ddlGenero.SelectedValue == "1")
+                {
+                    estudiante.Sexo = "Masculino";
+                }
                 else
                 {
-                    throw new Exception("Tienes que completar los campos....");
-                }*/
+                    estudiante.Sexo = "Femenino";
+                }
+                estudiante.Telefono = txtTelefono.Text;
+                estudiante.Direccion = txtDireccion.Text;
+                // Formateamos la fecha en Inglés, para así enviarla a SQL.
+                estudiante.FechaNacimiento = txtFechaNacimiento.Text;
+                estudiante.ID_Grado = int.Parse(ddlGrado.SelectedValue);
+
+                // Valido si voy a insertar o a actualizar.
+                if (Request.QueryString["Id"] != null)
+                {
+                    // Voy a actualizar.
+                    estudiante.ID_Estudiante = int.Parse(Request.QueryString["id"]);
+                    respuesta = BLL_Estudiante.Actualizar_Estudiante(estudiante);
+                }
+                else
+                {
+                    // Voy a insertar
+                    respuesta = BLL_Estudiante.Insertar_Estudiante(estudiante);
+                }
+
+                // Preparo mi Sweet Alert.
+                if (respuesta.ToUpper().Contains("ERROR"))
+                {
+                    titulo = "ERROR";
+                    msg = respuesta;
+                    tipo = "error";
+                    // Sweet Alert.
+                    SweetAlert.Sweet_Alert(titulo, msg, tipo, this.Page, this.GetType());
+                }
+                else
+                {
+                    titulo = "Ok!";
+                    msg = respuesta;
+                    tipo = "success";
+                    // Sweet Alert.
+                    SweetAlert.Sweet_Alert(titulo, msg, tipo, this.Page, this.GetType(), "/Catalogos/Estudiante/Listado_Estudiantes.aspx");
+                }
             }
             catch (Exception ex)
             {

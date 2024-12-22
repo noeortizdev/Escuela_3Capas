@@ -25,13 +25,13 @@
                     <asp:TextBox ID="txtCURP" runat="server" CssClass="form-control" required></asp:TextBox>
 
                     <asp:Label ID="lblSexo" runat="server" Text="Sexo"></asp:Label>
-                    <asp:TextBox ID="txtSexo" runat="server" CssClass="form-control" required></asp:TextBox>
+                    <asp:DropDownList ID="ddlGenero" runat="server" CssClass="form-control" required></asp:DropDownList>
 
                     <asp:Label ID="lblTelefono" runat="server" Text="Telefono"></asp:Label>
                     <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" required></asp:TextBox>
 
                     <asp:Label ID="lblParentesco" runat="server" Text="Parentesco"></asp:Label>
-                    <asp:TextBox ID="txtParentesco" runat="server" CssClass="form-control" required></asp:TextBox>
+                    <asp:DropDownList ID="ddlParentesco" runat="server" CssClass="form-control" required></asp:DropDownList>
 
                     <asp:Label ID="lblDireccion" runat="server" Text="Direccion"></asp:Label>
                     <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control" required></asp:TextBox>

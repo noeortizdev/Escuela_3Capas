@@ -48,6 +48,7 @@
     <Compile Include="DAL_Estudiante.cs" />
     <Compile Include="DAL_Grado.cs" />
     <Compile Include="DAL_Profesor.cs" />
+    <Compile Include="DAL_Total.cs" />
     <Compile Include="DAL_Tutor.cs" />
     <Compile Include="Metodos_Datos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
